@@ -1,5 +1,6 @@
 package raiseTech.Student.Management;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class Application {
 	}
 @GetMapping("/Hello")
 	public  String Hello(){
-		return  "Hello,World! Today is WednesDay.";
+		return  "Hello,World! Today is MonDay.";
 }
 
 }
