@@ -36,6 +36,23 @@ private String name ="Yamada Hanako";
 	}
 
 
+	private Map<String, String> studentdate =new HashMap<>();
+
+	{
+		studentdate.put("hanako","25");
+		studentdate.put("taro","30");
+	}
+
+
+	@GetMapping("/studentInfo")
+	public String getstudentInfo(){
+		String result = studentdate.entrySet().stream()
+				.map(entry ->entry.getKey()+"は"+entry.getValue() + "歳です。")
+				.collect(Collectors.joining("\n"));
+
+		return result;
+	}
+
 
 
 }
