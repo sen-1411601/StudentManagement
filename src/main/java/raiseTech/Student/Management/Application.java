@@ -57,5 +57,19 @@ public String addStudent(@RequestBody Student request){
 		return "名前："+request.getStudentName()+"年齢："+request.getStudentAge()+"を追加しました。";
 	}
 
+	@PostMapping("/changeStudentName")
+public  String changeStudentname(@RequestBody ChangeStudentName request) {
+		String oldStudentName = request.getOldStudentName();
+		String newStudentName = request.getNewStudentName();
 
+		if (!studentData.containsKey(oldStudentName)) {
+			return "変更対象の名前が存在しませんでした。";
+		} else {
+			String studentAge = studentData.get(oldStudentName);
+			studentData.remove(oldStudentName);
+			studentData.put(newStudentName, studentAge);
+
+			return "名前を" + oldStudentName + "から" + newStudentName + "に変更しました。";
+		}
+	}
 }
